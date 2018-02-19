@@ -1,11 +1,13 @@
 export default class Slider {
-	constructor( {elements, animationFunc} ) {
+	constructor( {elements, animationFunc, speed} ) {
 
 		this.elements = elements;
 		this.animationFunc = animationFunc;
 
 		this.index = 0;
 		this.size = elements.length;
+
+		this.speed = speed;
 
 		this.prev = this.prev.bind(this);
 		this.stop = this.stop.bind(this);
@@ -15,18 +17,18 @@ export default class Slider {
 		this.index++;
 		if ( this.index >= this.size ) this.index = 0;
 
-		console.log( this.elements[this.index]);
+		this.animationFunc( this.elements[this.index]);
 	}
 
 	prev() {
 		this.index--;
 		if ( this.index < 0 ) this.index = this.size -1;
 
-		console.log( this.elements[this.index]);
+		this.animationFunc( this.elements[this.index]);
 	}
 
 	play() {
-		this.interval = setInterval( this.prev, 3000)
+		this.interval = setInterval( this.prev, this.speed)
 	}
 
 	stop() {

@@ -18,7 +18,7 @@ figure {
 	margin: 0px;
 
 	figcaption {
-		
+
 		@include caption;
 	}
 }
@@ -64,7 +64,7 @@ figure {
 	margin-top: $big-margin-top;
 	margin-bottom: $big-margin-top;
 	grid-template-columns: repeat(9, 1fr);
-	grid-template-areas: 
+	grid-template-areas:
 	"title title title title title title title title title"
 	"image image image image image image image image image";
 
@@ -113,6 +113,11 @@ figure {
 }
 
 .slider {
+	.image {
+		min-height: 100vh;
+		display: flex;
+		align-items: center;
+	}
 	header {
 		background-color: $blue;
 		color: $white;
@@ -121,6 +126,8 @@ figure {
 		width: 80%;
 		box-sizing: border-box;
 		margin: 0 auto;
+		z-index: 10;
+		position: relative;
 		h2 {
 			margin: 0px;
 		}
@@ -139,6 +146,21 @@ figure {
 				right: 0px;
 			}
 		}
+	}
+}
+
+#slider-text-content {
+	@include transition;
+	&.hide {
+		opacity: 0;
+		transform: translateX(100px);
+	}
+}
+
+#slider-image {
+	@include transition;
+	&.hide {
+		opacity: 0;
 	}
 }
 
@@ -193,7 +215,7 @@ figure {
 	.grid-main-area {
 		display: grid;
 		grid-template-columns: repeat(9, 1fr);
-		grid-template-areas: 
+		grid-template-areas:
 		"title title title image image image image image image";
 	}
 
