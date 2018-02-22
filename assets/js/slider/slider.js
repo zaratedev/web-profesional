@@ -9,26 +9,46 @@ export default class Slider {
 
 		this.speed = speed;
 
-		this.prev = this.prev.bind(this);
+		this.innerNext = this.innerNext.bind(this);
+		this.innerPrev = this.innerPrev.bind(this);
 		this.stop = this.stop.bind(this);
+
+		this.next = this.next.bind(this);
+		this.prev = this.prev.bind(this);
 	}
 
-	next() {
+	innerNext() {
 		this.index++;
 		if ( this.index >= this.size ) this.index = 0;
 
 		this.animationFunc( this.elements[this.index]);
 	}
 
-	prev() {
+	innerPrev() {
 		this.index--;
 		if ( this.index < 0 ) this.index = this.size -1;
 
 		this.animationFunc( this.elements[this.index]);
 	}
 
+	next() {
+		this.innerNext();
+
+		if (this.interval) {
+			this.stop();
+		}
+	}
+
+	prev() {
+		this.innerPrev();
+
+		if (this.interval) {
+			this.stop();
+		}
+	}
+
 	play() {
-		this.interval = setInterval( this.prev, this.speed)
+		this.interval = setInterval( this.innerNext, this.speed)
 	}
 
 	stop() {

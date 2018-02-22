@@ -1,28 +1,19 @@
 
 import Slider from './slider';
+import elements from './elements';
+import Preloader from '../preloader/preloader';
 
 let sliderText = document.querySelector("#slider-text");
 let sliderTitle = document.querySelector("#slider-title");
 let sliderSubTitle = document.querySelector("#slider-subtitle");
 let sliderImage = document.querySelector("#slider-image");
-
 let textContent = document.querySelector("#slider-text-content");
 
+let leftArrow = document.querySelector(".left-arrow");
+let rightArrow = document.querySelector(".right-arrow");
+
 let slider = new Slider( {
-	elements: [
-		{
-			title: 'Lorem ipsum',
-			subtitle: 'Ipsum',
-			image: '../public/images/1.jpeg',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sequi, hic ut, dolore maxime omnis molestias earum recusandae. Commodi est et debitis quis ea numquam eos officia rem incidunt alias.'
-		},
-		{
-			title: 'Lorem ipsum 2',
-			subtitle: 'Ipsum',
-			image: '../public/images/3.jpeg',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sequi, hic ut, dolore maxime omnis molestias earum recusandae. Commodi est et debitis quis ea numquam eos officia rem incidunt alias.'
-		}
-	],
+	elements,
 	animationFunc: function( element ) {
 		textContent.classList.add("hide");
 		sliderImage.classList.add("hide");
@@ -43,3 +34,16 @@ let slider = new Slider( {
 });
 
 slider.play();
+
+
+leftArrow.addEventListener('click', slider.prev);
+rightArrow.addEventListener('click', slider.next);
+
+const imagePaths = elements.map( el => el.image );
+console.log(imagePaths);
+Preloader.preloadImages({
+	images: imagePaths,
+	completed: function(){
+		document.querySelector(".controls").style.display = "block";
+	}
+});
