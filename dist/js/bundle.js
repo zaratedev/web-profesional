@@ -107,6 +107,7 @@ let sliderTitle = document.querySelector("#slider-title");
 let sliderSubTitle = document.querySelector("#slider-subtitle");
 let sliderImage = document.querySelector("#slider-image");
 let textContent = document.querySelector("#slider-text-content");
+let sliderWeb = document.querySelector("#slider-web");
 
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
@@ -122,6 +123,8 @@ let slider = new __WEBPACK_IMPORTED_MODULE_0__slider__["a" /* default */]( {
 			sliderSubTitle.innerHTML = element.subtitle;
 			sliderImage.src = element.image;
 			sliderText.innerHTML = element.text;
+			sliderWeb.innerHTML = element.site;
+			sliderWeb.href = element.url;
 
 			textContent.classList.remove("hide");
 			sliderImage.classList.remove("hide");
@@ -129,7 +132,7 @@ let slider = new __WEBPACK_IMPORTED_MODULE_0__slider__["a" /* default */]( {
 		}, 600);
 
 	},
-	speed: 5000
+	speed: 7000
 });
 
 slider.play();
@@ -222,21 +225,42 @@ class Slider {
 const elements =
 [
 		{
-			title: 'Lorem ipsum',
-			subtitle: 'Ipsum',
-			image: '../public/images/1.jpeg',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sequi, hic ut, dolore maxime omnis molestias earum recusandae. Commodi est et debitis quis ea numquam eos officia rem incidunt alias.'
+			title: 'Ofijob',
+			subtitle: 'Portal',
+			image: '../public/images/ofijob.png',
+			text: 'Portal para buscar empleo. desarrolle diferentes modulos e implementación de diseño de Frontend.',
+			site: 'www.ofijob.com',
+			url: 'https://www.ofijob.com'
 		},
 		{
-			title: 'Lorem ipsum 2',
-			subtitle: 'Ipsum',
-			image: '../public/images/3.jpeg',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem sequi, hic ut, dolore maxime omnis molestias earum recusandae. Commodi est et debitis quis ea numquam eos officia rem incidunt alias.'
+			title: 'Wood|Style',
+			subtitle: 'Revista',
+			image: '../public/images/woodstyle.png',
+			text: 'Revista magazine online. Desarrolle la sección de zonas utilizando la API de Google Maps.',
+			site: 'www.woodstyle.media',
+			url: 'https://www.woodstyle.media'
+		},
+		{
+			title: 'Evolution',
+			subtitle: 'Landing page',
+			image: '../public/images/evolution.png',
+			text: 'Página coorporativa. Realize el diseño Frontend de la página e implementación de formularios de registros.',
+			site: 'www.evolutionhc.com.mx',
+			url: 'http://www.evolutionhc.com.mx'
+		},
+		{
+			title: 'Corp Clean',
+			subtitle: 'Landing page',
+			image: '../public/images/corpclean.png',
+			text: 'Landing page de empresa de limpieza. Realize el rediseño de la página.',
+			site: 'corpclean.com.mx',
+			url: 'http://corpclean.com.mx/'
 		}
 	];
 
 
 /* harmony default export */ __webpack_exports__["a"] = (elements);
+
 
 /***/ }),
 /* 5 */

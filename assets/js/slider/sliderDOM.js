@@ -8,6 +8,7 @@ let sliderTitle = document.querySelector("#slider-title");
 let sliderSubTitle = document.querySelector("#slider-subtitle");
 let sliderImage = document.querySelector("#slider-image");
 let textContent = document.querySelector("#slider-text-content");
+let sliderWeb = document.querySelector("#slider-web");
 
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
@@ -23,6 +24,8 @@ let slider = new Slider( {
 			sliderSubTitle.innerHTML = element.subtitle;
 			sliderImage.src = element.image;
 			sliderText.innerHTML = element.text;
+			sliderWeb.innerHTML = element.site;
+			sliderWeb.href = element.url;
 
 			textContent.classList.remove("hide");
 			sliderImage.classList.remove("hide");
@@ -30,7 +33,7 @@ let slider = new Slider( {
 		}, 600);
 
 	},
-	speed: 5000
+	speed: 7000
 });
 
 slider.play();
